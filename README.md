@@ -16,3 +16,12 @@ scan(['localhost', 'scanme.nmap.org'],{http: true, tableWidth: 14}, function(out
     console.log(output.join('\n'));
 });
 ```
+# Example Output:
+| HOST           | PORT           | SERVICE        |
+|---------------:|:---------------|:---------------|
+| 74.207.244.221 | PORT           | SERVICE        |
+| ›››››          | 22             | ssh            |
+| ›››››          | 9929           | nping-echo     |
+| 127.0.0.1      | PORT           | SERVICE        |
+| ›››››          | 631            | ipp            |
+| ›››››          | 8080           | http-proxy     |
