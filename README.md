@@ -5,8 +5,10 @@ Exposes the startScan method that accepts 3 arguments: an array containing the s
 
 #Options:
 
-The http option specifies whether or not to include ports 80 and 443 in the results. These are generally innocent ports to have running and not interesting as far as a penetration test is concerned, so I made an option to leave them out if desired.
-tableWidth specifies the width of the markdown table generated. Recommended to set this to 14 or higher or it may not be plaintext readable.
+The http option specifies whether or not to include ports 80 and 443 in the results. True by default.
+tableWidth specifies the width of the markdown table generated. 14 by default.
+highlight specifies what character will be used as a spacer in rows listing ports. By default, ' ' is used.
+highlightRepeat specifies how many times the highlight will be repeated.
 
 # Example:
 ```
@@ -19,9 +21,9 @@ scan(['localhost', 'scanme.nmap.org'],{http: true, tableWidth: 14}, function(out
 # Example Output:
 | HOST           | PORT           | SERVICE        |
 |---------------:|:---------------|:---------------|
-| 74.207.244.221 | PORT           | SERVICE        |
-| ›››››          | 22             | ssh            |
-| ›››››          | 9929           | nping-echo     |
 | 127.0.0.1      | PORT           | SERVICE        |
-| ›››››          | 631            | ipp            |
-| ›››››          | 8080           | http-proxy     |
+|                | 631            | ipp            |
+|                | 8080           | http-proxy     |
+| 74.207.244.221 | PORT           | SERVICE        |
+|                | 22             | ssh            |
+|                | 9929           | nping-echo     |
