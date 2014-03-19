@@ -1,7 +1,7 @@
 # downmap
 A simple library that interacts with node-libnmap to perform nmap scans and generate pretty markdown tables from the results.
 # Usage:
-Exposes the startScan method that accepts 3 arguments: an array containing the scan targets, an object containing options for the scan and resulting output, and a callback which returns the markdown table.
+Exposes the startScan method that accepts 3 arguments: an array containing the scan targets, an object containing options for the scan and resulting output, and a callback which returns the markdown table as an array of rows. 
 
 #Options:
 
