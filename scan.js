@@ -1,7 +1,10 @@
 var libnmap = require('node-libnmap');
 var mdOut = [];
 var startScan=function(targets, options, callback){
-//var options.tableWidth = 14;
+if(!options.highlight) options.highlight = ' ';
+if(!options.highlightRepeat) options.highlightRepeat = 4;
+if(!options.http) options.http = true;
+if(!options.tableWidth) options.tableWidth = 14;
 var output = function(input){
     mdOut.push(input);
 }
@@ -33,7 +36,7 @@ libnmap.nmap('scan', {
         output(makeRow([item[0].ip, 'PORT', 'SERVICE']));
         item[0].ports.forEach(function(port){
             if (!options.http && (port.port === '80' || port.port === '443')){
-            } else output(makeRow(['›››››', port.port, port.service])) //output('|    ›››››     |   ' + port.port + '   |   ' + port.service + '    |');
+            } else output(makeRow([multStr(options.highlight, options.highlightRepeat-1), port.port, port.service]))
         })
     })
     callback(mdOut);
