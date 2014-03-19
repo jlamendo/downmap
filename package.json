@@ -1,0 +1,15 @@
+{
+  "name": "downmap",
+  "version": "0.0.1",
+  "description": "Uses libnmap to scan hosts and return markdown formatted tables",
+  "main": "scan.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jon Lamendola",
+  "license": "MIT",
+  "dependencies": {
+    "node-libnmap": "~0.1.3"
+  },
+  "devDependencies": {}
+}
