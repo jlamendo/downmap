@@ -9,7 +9,12 @@ The http option specifies whether or not to include ports 80 and 443 in the resu
 tableWidth specifies the width of the markdown table generated. 14 by default.
 highlight specifies what character will be used as a spacer in rows listing ports. By default, ' ' is used.
 highlightRepeat specifies how many times the highlight will be repeated.
-
+Ports define what ports are to be scanned. 1-65535(all ports) is the default.
+Flags are the command line options passed to nmap. If changed, they must include -oG and be appended with a trailing -. Default flags are
+```
+-A -sV -g53 -sS -Pn -n -oG -
+```
+Output can be set to json or left blank. If set to json, it will return an array of json objects rather than the default markdown. This option basically forms a convenient wrapper for calling the standard libnmap scans and the downmap scans from the same library.
 # Example:
 ```
 var scan = require('downmap').startScan
