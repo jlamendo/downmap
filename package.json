@@ -1,6 +1,6 @@
 {
   "name": "downmap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Uses libnmap to scan hosts and return markdown formatted tables",
   "main": "scan.js",
   "scripts": {

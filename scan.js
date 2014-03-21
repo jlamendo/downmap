@@ -1,4 +1,4 @@
-var libnmap = require('node-libnmap');
+var libnmap = require('./node_modules/node-libnmap/lib/node-libnmap.js');
 var mdOut = [];
 var startScan = function (targets, options, callback) {
     if (!options.highlight) options.highlight = ' ';
@@ -38,10 +38,11 @@ var startScan = function (targets, options, callback) {
                 })
                 callback(mdOut);
             }else {
+            if(options.tableHeader===true){
             var tableInit = '|' + multStr('-', options.tableWidth) + ':|:' + multStr('-', options.tableWidth) + '|:' + multStr('-', options.tableWidth) + '|:' + multStr('-', options.tableWidth) + '|'
-
             output(makeRow(['HOST', 'PORT', 'SERVICE', 'VERSION']));
             output(tableInit);
+        };
             report.forEach(function (item) {
                 output(makeRow([item[0].ip, 'PORT', 'SERVICE', 'VERSION']));
                 item[0].ports.forEach(function (port) {
